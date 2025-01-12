@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthSeviceTsComponent } from './auth.sevice.ts.component';
+import { AuthSeviceTsComponent } from './auth.sevice';
 
 describe('AuthSeviceTsComponent', () => {
   let component: AuthSeviceTsComponent;
