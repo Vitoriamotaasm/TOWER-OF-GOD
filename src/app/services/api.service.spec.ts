@@ -1,16 +1,25 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Item } from '../models/item.model';
 
-import { ApiService } from './api.service';
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
+  private apiUrl = 'http://localhost:3000/posts'
 
-describe('ApiService', () => {
-  let service: ApiService;
+  constructor(private http: HttpClient) {}
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ApiService);
-  });
+  getItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.apiUrl);
+  }
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  getItem(id: string): Observable<Item> {
+    return this.http.get<Item>('${this.apiUtl}/${id}');
+  }
+
+  addItem(item: Item): Observable<Item> {
+    return this.http.post<Item>('${this.apiUrl}/${id}');
+  }
+}
