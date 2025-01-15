@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+    <h2>Bem-vindo ao Tower of God</h2>
+    <div class="mb-3">
+        <h4>Pomtuacao Atual: {{ score$ | async }} </h4>
+    </div>
+    <div *ngIf="loading$ | async" class="spinner-border" role="status">
+        <span class="visually-hidden">Carregando...</span>
+    </div>
+    <div *ngIf="error$ | async as error" class="alert alert-danger">
+        {{ error }}
+    </div>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let item of items$ | async">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <p class="card-text">{{ item.description }}</p>
+                    <a [routerLink]=" ['/levels', item.id]" class="btn btn-primary">Entrar no Nível</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
