@@ -9,6 +9,11 @@ export const selectAllItems = createSelector(
     (state: ItemState) => state.items
 );
 
+export const selectCurrentItem = createSelector(
+    selectorItemState,
+    (state: ItemState) => state.currentItem
+);
+
 export const selectItemsLoading = createSelector(
     selectorItemState,
     (state: ItemState) => state.loading
