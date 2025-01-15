@@ -1,1 +1,15 @@
-<p>levels works!</p>
+<div class="level">
+    <div *ngIf="loading$ | async" class="spinner-border" role="status">
+        <span class="visually-hidden">Carregando...</span>
+    </div>
+    <div *ngIf="error$ | async as error" class="alert-danger">
+        {{ error }}
+    </div>
+    <div *ngIf="item$ | async as item">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+       
+          <button class="btn btn-success"
+    (click)="completeLevel()">Completar Nível</button>
+    </div>
+</div>
