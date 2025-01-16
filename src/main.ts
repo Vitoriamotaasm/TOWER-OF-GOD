@@ -1,16 +1,17 @@
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppRoutingComponent } from './app/app.routes';
-import { environment } from './app/environments/environments.component';
+import { AppComponent } from './app/app.component';
+import { environment } from './app/environments/environment';
 import { appConfig } from './app/app.config';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
 
 if (environment.production) {
  enableProdMode();
 }
-bootstrapApplication(AppRoutingComponent, {
+bootstrapApplication(AppComponent, {
  providers: [
- ...appConfig(),
+   ...appConfig.providers,
+ importProvidersFrom(RouterModule)
  ]
 })
  .catch(err => console.error(err));

@@ -20,6 +20,6 @@ export class ApiService {
   }
 
   addItem(item: Item): Observable<Item> {
-    return this.http.post<Item>('${this.apiUrl}/${id}');
+    return this.http.get<Item>('${this.apiUrl}/${id}');
   }
 }

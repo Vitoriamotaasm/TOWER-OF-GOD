@@ -1,18 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AuthService } from './auth.sevice'
 
-import { AuthSeviceTsComponent } from './auth.sevice';
-
-describe('AuthSeviceTsComponent', () => {
-  let component: AuthSeviceTsComponent;
-  let fixture: ComponentFixture<AuthSeviceTsComponent>;
+class MockRouter {
+  navigate = jasmine.createSpy('navigate');
+}
+describe('AuthSevice', () => {
+  let component: AuthService;
+  let fixture: ComponentFixture<AuthService>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AuthSeviceTsComponent]
+      imports: [AuthService]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AuthSeviceTsComponent);
+    fixture = TestBed.createComponent(AuthService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

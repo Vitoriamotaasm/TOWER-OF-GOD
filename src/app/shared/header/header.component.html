@@ -1,1 +1,17 @@
-<p>header works!</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/dashboard">Tower od God</a>
+    <button class="navbar-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggle-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" *ngIf="isLoggedIn$ | async">
+    <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard">dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/levels">Níveis</a>
+        </li>
+    </ul>
+    <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()">Logout</button>
+    </div>
+</nav>
